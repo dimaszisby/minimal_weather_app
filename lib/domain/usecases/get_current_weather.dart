@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 
 import '../../data/failure.dart';
-import '../../data/models/current_weather_model.dart';
+import '../entities/current_weather.dart';
 import '../repositories/weather_repository.dart';
 
 
@@ -10,7 +10,7 @@ class GetCurrentWeather {
 
   GetCurrentWeather(this.repository);
 
-  Future<Either<Failure, Weather>> execute(double lat, double long) {
+  Future<Either<Failure, CurrentWeather>> execute(double lat, double long) {
     return repository.getCurrentWeather(lat, long);
   }
 }
