@@ -5,10 +5,10 @@ import '../../../presentation/bloc/current_weather/current_weather_event.dart';
 import '../../../presentation/bloc/current_weather/current_weather_state.dart';
 import '../../../domain/usecases/get_current_weather.dart';
 
-class WeatherBloc extends Bloc<CurrentWeatherEvent, CurrentWeatherState> {
+class CurrentWeatherBloc extends Bloc<CurrentWeatherEvent, CurrentWeatherState> {
   final GetCurrentWeather _getCurrentWeather;
 
-  WeatherBloc(this._getCurrentWeather) : super(WeatherEmpty()) {
+  CurrentWeatherBloc(this._getCurrentWeather) : super(WeatherEmpty()) {
     on<OnCoordinateChanged>(
       (event, emit) async {
         final lon = event.lon;
