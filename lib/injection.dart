@@ -6,7 +6,7 @@ import 'data/datasources/remote_data_source.dart';
 final locator = GetIt.instance;
 
 void initLocator() {
-  
+
   locator.registerLazySingleton<RemoteDataSource>(
     () => RemoteDataSourceImpl(
       client: locator(),
