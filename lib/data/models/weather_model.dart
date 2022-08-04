@@ -5,17 +5,17 @@
 import 'package:meta/meta.dart';
 import 'dart:convert';
 
-CurrentWeather currentWeatherFromJson(String str) => CurrentWeather.fromJson(json.decode(str));
+CurrentWeatherModel currentWeatherFromJson(String str) => CurrentWeatherModel.fromJson(json.decode(str));
 
-String currentWeatherToJson(CurrentWeather data) => json.encode(data.toJson());
+String currentWeatherToJson(CurrentWeatherModel data) => json.encode(data.toJson());
 
-class CurrentWeather {
-    CurrentWeather({
-        @required this.cod,
-        @required this.message,
-        @required this.cnt,
-        @required this.list,
-        @required this.city,
+class CurrentWeatherModel {
+    CurrentWeatherModel({
+        required this.cod,
+        required this.message,
+        required this.cnt,
+        required this.list,
+        required this.city,
     });
 
     String cod;
@@ -24,7 +24,7 @@ class CurrentWeather {
     List<ListElement> list;
     City city;
 
-    factory CurrentWeather.fromJson(Map<String, dynamic> json) => CurrentWeather(
+    factory CurrentWeatherModel.fromJson(Map<String, dynamic> json) => CurrentWeatherModel(
         cod: json["cod"],
         message: json["message"],
         cnt: json["cnt"],
@@ -43,14 +43,14 @@ class CurrentWeather {
 
 class City {
     City({
-        @required this.id,
-        @required this.name,
-        @required this.coord,
-        @required this.country,
-        @required this.population,
-        @required this.timezone,
-        @required this.sunrise,
-        @required this.sunset,
+        required this.id,
+        required this.name,
+        required this.coord,
+        required this.country,
+        required this.population,
+        required this.timezone,
+        required this.sunrise,
+        required this.sunset,
     });
 
     int id;
@@ -87,8 +87,8 @@ class City {
 
 class Coord {
     Coord({
-        @required this.lat,
-        @required this.lon,
+        required this.lat,
+        required this.lon,
     });
 
     double lat;
@@ -107,16 +107,16 @@ class Coord {
 
 class ListElement {
     ListElement({
-        @required this.dt,
-        @required this.main,
-        @required this.weather,
-        @required this.clouds,
-        @required this.wind,
-        @required this.visibility,
-        @required this.pop,
-        @required this.sys,
-        @required this.dtTxt,
-        @required this.rain,
+        required this.dt,
+        required this.main,
+        required this.weather,
+        required this.clouds,
+        required this.wind,
+        required this.visibility,
+        required this.pop,
+        required this.sys,
+        required this.dtTxt,
+        required this.rain,
     });
 
     int dt;
@@ -128,7 +128,7 @@ class ListElement {
     double pop;
     Sys sys;
     DateTime dtTxt;
-    Rain rain;
+    Rain? rain;
 
     factory ListElement.fromJson(Map<String, dynamic> json) => ListElement(
         dt: json["dt"],
@@ -153,13 +153,13 @@ class ListElement {
         "pop": pop,
         "sys": sys.toJson(),
         "dt_txt": dtTxt.toIso8601String(),
-        "rain": rain == null ? null : rain.toJson(),
+        "rain": rain == null ? null : rain!.toJson(),
     };
 }
 
 class Clouds {
     Clouds({
-        @required this.all,
+        required this.all,
     });
 
     int all;
@@ -175,15 +175,15 @@ class Clouds {
 
 class MainClass {
     MainClass({
-        @required this.temp,
-        @required this.feelsLike,
-        @required this.tempMin,
-        @required this.tempMax,
-        @required this.pressure,
-        @required this.seaLevel,
-        @required this.grndLevel,
-        @required this.humidity,
-        @required this.tempKf,
+        required this.temp,
+        required this.feelsLike,
+        required this.tempMin,
+        required this.tempMax,
+        required this.pressure,
+        required this.seaLevel,
+        required this.grndLevel,
+        required this.humidity,
+        required this.tempKf,
     });
 
     double temp;
@@ -223,7 +223,7 @@ class MainClass {
 
 class Rain {
     Rain({
-        @required this.the3H,
+        required this.the3H,
     });
 
     double the3H;
@@ -239,10 +239,10 @@ class Rain {
 
 class Sys {
     Sys({
-        @required this.pod,
+        required this.pod,
     });
 
-    Pod pod;
+    Pod? pod;
 
     factory Sys.fromJson(Map<String, dynamic> json) => Sys(
         pod: podValues.map[json["pod"]],
@@ -262,14 +262,14 @@ final podValues = EnumValues({
 
 class Weather {
     Weather({
-        @required this.id,
-        @required this.main,
-        @required this.description,
-        @required this.icon,
+        required this.id,
+        required this.main,
+        required this.description,
+        required this.icon,
     });
 
     int id;
-    MainEnum main;
+    MainEnum? main;
     String description;
     String icon;
 
@@ -298,9 +298,9 @@ final mainEnumValues = EnumValues({
 
 class Wind {
     Wind({
-        @required this.speed,
-        @required this.deg,
-        @required this.gust,
+        required this.speed,
+        required this.deg,
+        required this.gust,
     });
 
     double speed;
@@ -322,7 +322,7 @@ class Wind {
 
 class EnumValues<T> {
     Map<String, T> map;
-    Map<T, String> reverseMap;
+    late Map<T, String> reverseMap;
 
     EnumValues(this.map);
 
