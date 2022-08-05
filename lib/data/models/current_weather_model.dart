@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 
 import '/domain/entities/current_weather.dart';
@@ -10,7 +9,7 @@ CurrentWeatherModel currentWeatherModelFromJson(String str) =>
 String currentWeatherModelToJson(CurrentWeatherModel data) =>
     json.encode(data.toJson());
 
-class CurrentWeatherModel with ChangeNotifier{
+class CurrentWeatherModel with ChangeNotifier {
   CurrentWeatherModel({
     required this.lon, //coord --> lon
     required this.lat, //coord --> lat
@@ -107,16 +106,3 @@ class CurrentWeatherModel with ChangeNotifier{
         visibility,
       ];
 }
-
-
-  // lon;
-  // lat;
-  // main;
-  //  temperature;
-  //  minTemperature;
-  //  maxTemperature;
-  // pressure;
-  //  humidity;
-  //  winSpeed;
-  //  cloud;
-  //  visibility;
