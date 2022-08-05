@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:minimal_weather_app/domain/usecases/get_current_weather.dart';
 
+import 'package:minimal_weather_app/domain/usecases/get_current_weather.dart';
+import 'package:minimal_weather_app/presentation/bloc/current_weather/current_weather_event.dart';
 import '../../../injection.dart';
-import '../../bloc/current_weather/current_weather_event.dart';
 import '/presentation/bloc/current_weather/current_weather_bloc.dart';
 import '/presentation/bloc/current_weather/current_weather_state.dart';
 
@@ -15,16 +15,15 @@ class CurrentWeatherPage extends StatefulWidget {
 }
 
 class _CurrentWeatherPageState extends State<CurrentWeatherPage> {
-
-  final _bloc = locator<CurrentWeatherBloc>();
-  final _useCase = locator<GetCurrentWeather>();
+  
   final tLon = 106.8456;
   final tLat = 6.2088;
   @override
   void initState() {
     super.initState();
-    _useCase.repository.getCurrentWeather(tLon, tLat);
-
+    context
+        .read<CurrentWeatherBloc>()
+        .add(OnCoordinateChanged(lon: tLon, lat: tLat));
   }
 
   @override
@@ -40,17 +39,17 @@ class _CurrentWeatherPageState extends State<CurrentWeatherPage> {
             return Column(
               key: const Key('weather_Data'),
               children: [
-                Text(state.result.lon as String),
-                Text(state.result.lat as String),
+                Text('${state.result.lon}'),
+                Text('${state.result.lat}'),
                 Text(state.result.main),
-                Text(state.result.temperature as String),
-                Text(state.result.maxTemperature as String),
-                Text(state.result.minTemperature as String),
-                Text(state.result.pressure as String),
-                Text(state.result.humidity as String),
+                Text('${state.result.temperature}'),
+                Text('${state.result.maxTemperature}'),
+                Text('${state.result.minTemperature}'),
+                Text('${state.result.pressure}'),
+                Text('${state.result.humidity}'),
                 Text(state.result.cloud),
-                Text(state.result.winSpeed as String),
-                Text(state.result.visibility as String),
+                Text('${state.result.winSpeed}'),
+                Text('${state.result.visibility}'),
               ],
             );
           } else if (state is WeatherError) {
