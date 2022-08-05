@@ -12,8 +12,6 @@ import 'package:mockito/mockito.dart';
 
 import 'weather_bloc_test.mocks.dart';
 
-
-
 @GenerateMocks([GetCurrentWeather])
 void main() {
   late MockGetCurrentWeather mockGetCurrentWeather;
@@ -41,7 +39,6 @@ void main() {
   const tCityName = 'Jakarta';
   final tLon = 106.8456;
   final tLat = 6.2088;
-  
 
   test(
     'initial state should be empty',

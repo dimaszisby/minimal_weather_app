@@ -10,7 +10,8 @@ class GetCurrentWeather {
 
   GetCurrentWeather(this.repository);
 
-  Future<Either<Failure, CurrentWeather>> execute(double lat, double long) {
-    return repository.getCurrentWeather(lat, long);
+  Future<Either<Failure, CurrentWeather>> execute(double lon, double lat) {
+    print('Use case: GET current weather');
+    return repository.getCurrentWeather(lon, lat);
   }
 }

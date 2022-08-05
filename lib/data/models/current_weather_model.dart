@@ -30,24 +30,24 @@ class CurrentWeatherModel with ChangeNotifier {
   final double temperature;
   final double minTemperature;
   final double maxTemperature;
-  final double pressure;
-  final double humidity;
+  final int pressure;
+  final int humidity;
   final double winSpeed;
   final String cloud;
-  final double visibility;
+  final int visibility;
 
   factory CurrentWeatherModel.fromJson(Map<String, dynamic> json) =>
       CurrentWeatherModel(
-        lon: json['coord'][0]['lon'],
-        lat: json['coord'][0]['lat'],
+        lon: json['coord']['lon'],
+        lat: json['coord']['lat'],
         main: json['weather'][0]['main'],
-        temperature: json['main'][0]['temp'],
-        minTemperature: json['main'][0]['temp_min'],
-        maxTemperature: json['main'][0]['temp_max'],
-        pressure: json['main'][0]['pressure'],
-        humidity: json['main'][0]['humidity'],
-        winSpeed: json['wind'][0]['speed'],
-        cloud: json['wheater'][0]['description'],
+        temperature: json['main']['temp'],
+        minTemperature: json['main']['temp_min'],
+        maxTemperature: json['main']['temp_max'],
+        pressure: json['main']['pressure'],
+        humidity: json['main']['humidity'],
+        winSpeed: json['wind']['speed'],
+        cloud: json['weather'][0]['description'],
         visibility: json['visibility'],
       );
 

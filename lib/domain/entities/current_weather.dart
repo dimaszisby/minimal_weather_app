@@ -21,11 +21,11 @@ class CurrentWeather extends Equatable {
   final double temperature;
   final double minTemperature;
   final double maxTemperature;
-  final double pressure;
-  final double humidity;
+  final int pressure;
+  final int humidity;
   final double winSpeed;
   final String cloud;
-  final double visibility;
+  final int visibility;
 
   @override
   List<Object?> get props => [

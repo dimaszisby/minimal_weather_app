@@ -1,11 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:minimal_weather_app/domain/usecases/get_current_weather.dart';
 
+import '../../../injection.dart';
+import '../../bloc/current_weather/current_weather_event.dart';
 import '/presentation/bloc/current_weather/current_weather_bloc.dart';
 import '/presentation/bloc/current_weather/current_weather_state.dart';
 
-class CurrentWeatherPage extends StatelessWidget {
+class CurrentWeatherPage extends StatefulWidget {
   const CurrentWeatherPage({Key? key}) : super(key: key);
+
+  @override
+  State<CurrentWeatherPage> createState() => _CurrentWeatherPageState();
+}
+
+class _CurrentWeatherPageState extends State<CurrentWeatherPage> {
+
+  final _bloc = locator<CurrentWeatherBloc>();
+  final _useCase = locator<GetCurrentWeather>();
+  final tLon = 106.8456;
+  final tLat = 6.2088;
+  @override
+  void initState() {
+    super.initState();
+    _useCase.repository.getCurrentWeather(tLon, tLat);
+
+  }
 
   @override
   Widget build(BuildContext context) {

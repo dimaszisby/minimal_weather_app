@@ -9,7 +9,6 @@ import 'package:minimal_weather_app/data/repositories/weather_repository_impl.da
 import 'package:minimal_weather_app/domain/entities/current_weather.dart';
 import 'package:mockito/mockito.dart';
 
-
 import '../../helpers/test_helper.mocks.dart';
 
 void main() {

@@ -23,11 +23,11 @@ void main() {
 
   group('get current weather', () {
     final tCityName = 'Jakarta';
-    final tLon = 6.2088;
-    final tLat = 106.8456;
+    final tLon = 106.8456;
+    final tLat = 6.2088;
 
-    final tWeatherModel = CurrentWeatherModel.fromJson(json
-        .decode(readJson('helpers/dummy_data/dummy_curent_weather_response.json')));
+    final tWeatherModel = CurrentWeatherModel.fromJson(json.decode(
+        readJson('helpers/dummy_data/dummy_curent_weather_response.json')));
 
     test(
       'should return weather model when the response code is 200',
