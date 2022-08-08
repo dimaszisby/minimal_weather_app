@@ -38,13 +38,13 @@ void main() {
     () async {
       // arrange
       when(mockWeatherRepository.getCurrentWeather(tLon, tLat))
-          .thenAnswer((_) async => Right(testWeatherDetail));
+          .thenAnswer((_) async => const Right(testWeatherDetail));
 
       // act
       final result = await usecase.execute(tLon, tLat);
 
       // assert
-      expect(result, equals(Right(testWeatherDetail)));
+      expect(result, equals(const Right(testWeatherDetail)));
     },
   );
 }

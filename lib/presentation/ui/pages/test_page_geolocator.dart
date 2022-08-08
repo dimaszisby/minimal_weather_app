@@ -13,7 +13,7 @@ class TestGeo extends StatefulWidget {
 class _TestGeoState extends State<TestGeo> {
 
   String location ='Null, Press Button';
-  String Address = 'search';
+  String address = 'search';
 
   Future<Position> _getGeoLocationPosition() async {
     bool serviceEnabled;
@@ -41,11 +41,11 @@ class _TestGeoState extends State<TestGeo> {
     return await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
   }
 
-  Future<void> GetAddressFromLatLong(Position position)async {
+  Future<void> getAddressFromLatLong(Position position)async {
     List<Placemark> placemarks = await placemarkFromCoordinates(position.latitude, position.longitude);
     print(placemarks);
     Placemark place = placemarks[0];
-    Address = '${place.street}, ${place.subLocality}, ${place.locality}, ${place.postalCode}, ${place.country}';
+    address = '${place.street}, ${place.subLocality}, ${place.locality}, ${place.postalCode}, ${place.country}';
     setState(()  {
     });
   }
@@ -57,18 +57,18 @@ class _TestGeoState extends State<TestGeo> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Coordinates Points',style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
-            SizedBox(height: 10,),
-            Text(location,style: TextStyle(color: Colors.black,fontSize: 16),),
-            SizedBox(height: 10,),
-            Text('ADDRESS',style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
-            SizedBox(height: 10,),
-            Text('${Address}'),
+            const Text('Coordinates Points',style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
+            const SizedBox(height: 10,),
+            Text(location,style: const TextStyle(color: Colors.black,fontSize: 16),),
+            const SizedBox(height: 10,),
+            const Text('ADDRESS',style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
+            const SizedBox(height: 10,),
+            Text(address),
             ElevatedButton(onPressed: () async{
               Position position = await _getGeoLocationPosition();
               location ='Lat: ${position.latitude} , Long: ${position.longitude}';
-              GetAddressFromLatLong(position);
-            }, child: Text('Get Location'))
+              getAddressFromLatLong(position);
+            }, child: const Text('Get Location'))
           ],
         ),
       ),

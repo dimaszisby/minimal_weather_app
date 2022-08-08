@@ -36,7 +36,7 @@ void main() {
     visibility: 1000,
   );
 
-  final tCurrentWeather = CurrentWeather(
+  const tCurrentWeather = CurrentWeather(
     lon: 6.2088,
     lat: 106.8456,
     main: 'cloudy',
@@ -51,9 +51,9 @@ void main() {
   );
 
   group('get current weather', () {
-    final tCityName = 'Jakarta';
-    final tLon = 106.8456;
-    final tLat = 6.2088;
+    const tCityName = 'Jakarta';
+    const tLon = 106.8456;
+    const tLat = 6.2088;
 
     test(
       'should return current weather when a call to data source is successful',
@@ -67,7 +67,7 @@ void main() {
 
         // assert
         verify(mockRemoteDataSource.getCurrentWeather(tLon, tLat));
-        expect(result, equals(Right(tCurrentWeather)));
+        expect(result, equals(const Right(tCurrentWeather)));
       },
     );
 
@@ -83,7 +83,7 @@ void main() {
 
         // assert
         verify(mockRemoteDataSource.getCurrentWeather(tLon, tLat));
-        expect(result, equals(Left(ServerFailure(''))));
+        expect(result, equals(const Left(ServerFailure(''))));
       },
     );
 
@@ -92,7 +92,7 @@ void main() {
       () async {
         // arrange
         when(mockRemoteDataSource.getCurrentWeather(tLon, tLat))
-            .thenThrow(SocketException('Failed to connect to the network'));
+            .thenThrow(const SocketException('Failed to connect to the network'));
 
         // act
         final result = await repository.getCurrentWeather(tLon, tLat);
@@ -101,7 +101,7 @@ void main() {
         verify(mockRemoteDataSource.getCurrentWeather(tLon, tLat));
         expect(
           result,
-          equals(Left(ConnectionFailure('Failed to connect to the network'))),
+          equals(const Left(ConnectionFailure('Failed to connect to the network'))),
         );
       },
     );

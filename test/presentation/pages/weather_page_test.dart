@@ -36,7 +36,7 @@ void main() {
     mockWeatherBloc = MockWeatherBloc();
   });
 
-  final tWeather = CurrentWeather(
+  const tWeather = CurrentWeather(
     lon: 6.2088,
     lat: 106.8456,
     main: 'cloudy',
@@ -66,13 +66,13 @@ void main() {
       when(() => mockWeatherBloc.state).thenReturn(WeatherEmpty());
 
       // act
-      await tester.pumpWidget(_makeTestableWidget(CurrentWeatherPage()));
+      await tester.pumpWidget(_makeTestableWidget(const CurrentWeatherPage()));
       // await tester.enterText(find.byType(TextField), 'Jakarta');
       // await tester.testTextInput.receiveAction(TextInputAction.done);
       await tester.pumpAndSettle();
 
       // assert
-      verify(() => mockWeatherBloc.add(OnCoordinateChanged(lon: 6.2088, lat:106.8456))).called(1);
+      verify(() => mockWeatherBloc.add(const OnCoordinateChanged(lon: 6.2088, lat:106.8456))).called(1);
       expect(find.byType(TextField), equals(findsOneWidget));
     },
   );
@@ -84,7 +84,7 @@ void main() {
       when(() => mockWeatherBloc.state).thenReturn(WeatherLoading());
 
       // act
-      await tester.pumpWidget(_makeTestableWidget(CurrentWeatherPage()));
+      await tester.pumpWidget(_makeTestableWidget(const CurrentWeatherPage()));
 
       // assert
       expect(find.byType(CircularProgressIndicator), equals(findsOneWidget));
@@ -95,10 +95,10 @@ void main() {
     'should show widget contain weather data when state is has data',
     (WidgetTester tester) async {
       // arrange
-      when(() => mockWeatherBloc.state).thenReturn(WeatherHasData(tWeather));
+      when(() => mockWeatherBloc.state).thenReturn(const WeatherHasData(tWeather));
 
       // act
-      await tester.pumpWidget(_makeTestableWidget(CurrentWeatherPage()));
+      await tester.pumpWidget(_makeTestableWidget(const CurrentWeatherPage()));
       await tester.runAsync(() async {
         final HttpClient client = HttpClient();
         await client.getUrl(Uri.parse(Urls.weatherIcon('02d')));
@@ -106,7 +106,7 @@ void main() {
       await tester.pumpAndSettle();
 
       // assert
-      expect(find.byKey(Key('weather_data')), equals(findsOneWidget));
+      expect(find.byKey(const Key('weather_data')), equals(findsOneWidget));
     },
   );
 }

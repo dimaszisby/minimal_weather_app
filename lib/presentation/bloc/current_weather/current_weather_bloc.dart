@@ -26,7 +26,7 @@ class CurrentWeatherBloc extends Bloc<CurrentWeatherEvent, CurrentWeatherState> 
           },
         );
       },
-      transformer: debounce(Duration(milliseconds: 500)),
+      transformer: debounce(const Duration(milliseconds: 500)),
     );
   }
 

@@ -22,7 +22,7 @@ void main() {
     weatherBloc = CurrentWeatherBloc(mockGetCurrentWeather);
   });
 
-  final tWeather = CurrentWeather(
+  const tWeather = CurrentWeather(
     lon: 6.2088,
     lat: 106.8456,
     main: 'cloudy',
@@ -37,8 +37,8 @@ void main() {
   );
 
   const tCityName = 'Jakarta';
-  final tLon = 106.8456;
-  final tLat = 6.2088;
+  const tLon = 106.8456;
+  const tLat = 6.2088;
 
   test(
     'initial state should be empty',
@@ -51,14 +51,14 @@ void main() {
     'should emit [loading, has data] when data is gotten successfully',
     build: () {
       when(mockGetCurrentWeather.execute(tLon, tLat))
-          .thenAnswer((_) async => Right(tWeather));
+          .thenAnswer((_) async => const Right(tWeather));
       return weatherBloc;
     },
-    act: (bloc) => bloc.add(OnCoordinateChanged(lon: tLon, lat: tLat)),
+    act: (bloc) => bloc.add(const OnCoordinateChanged(lon: tLon, lat: tLat)),
     wait: const Duration(milliseconds: 500),
     expect: () => [
       WeatherLoading(),
-      WeatherHasData(tWeather),
+     const WeatherHasData(tWeather),
     ],
     verify: (bloc) {
       verify(mockGetCurrentWeather.execute(tLon, tLat));
@@ -69,14 +69,14 @@ void main() {
     'should emit [loading, error] when get data is unsuccessful',
     build: () {
       when(mockGetCurrentWeather.execute(tLon, tLat))
-          .thenAnswer((_) async => Left(ServerFailure('Server failure')));
+          .thenAnswer((_) async => const Left(ServerFailure('Server failure')));
       return weatherBloc;
     },
-    act: (bloc) => bloc.add(OnCoordinateChanged(lon: tLon, lat: tLat)),
+    act: (bloc) => bloc.add(const OnCoordinateChanged(lon: tLon, lat: tLat)),
     wait: const Duration(milliseconds: 500),
     expect: () => [
       WeatherLoading(),
-      WeatherError('Server failure'),
+      const WeatherError('Server failure'),
     ],
     verify: (bloc) {
       verify(mockGetCurrentWeather.execute(tLon, tLat));

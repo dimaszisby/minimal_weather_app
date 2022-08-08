@@ -11,7 +11,7 @@ class OnCoordinateChanged extends CurrentWeatherEvent {
   final double lon;
   final double lat;
 
-  OnCoordinateChanged({required this.lon, required this.lat});
+  const OnCoordinateChanged({required this.lon, required this.lat});
 
   @override
   List<Object?> get props => [lon, lat];

@@ -52,7 +52,7 @@ class _CurrentWeatherPageState extends State<CurrentWeatherPage> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     key: const Key('weather_Data'),
                     children: [
-                      HeaderSegment(country: 'Indonesia'), //TODO: Replaced with GeoLocator and GeoCoding
+                      const HeaderSegment(country: 'Indonesia'), //TODO: Replaced with GeoLocator and GeoCoding
                       CoordinateCard(
                         lon: '${state.result.lon}',
                         lat: '${state.result.lat}',

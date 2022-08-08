@@ -21,7 +21,7 @@ void main() {
     visibility: 1000,
   );
 
-  final tWeather = CurrentWeather(
+  const tWeather = CurrentWeather(
     lon: 6.2088,
     lat: 106.8456,
     main: 'cloudy',
