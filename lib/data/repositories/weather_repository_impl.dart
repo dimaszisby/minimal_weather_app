@@ -19,9 +19,9 @@ class WeatherRepositoryImpl implements WeatherRepository {
       print('[REPO Impl]: ${result.props}');
       return Right(result.toEntity());
     } on ServerException {
-      return Left(ServerFailure(''));
+      return const Left(ServerFailure(''));
     } on SocketException {
-      return Left(ConnectionFailure('Failed to connect to the network'));
+      return const Left(ConnectionFailure('Failed to connect to the network'));
     }
   }
 }

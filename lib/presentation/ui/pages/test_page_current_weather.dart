@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../bloc/current_weather/current_weather_bloc.dart';
-import '../../bloc/current_weather/current_weather_event.dart';
 import '../../bloc/current_weather/current_weather_state.dart';
 
 class TestWeatherPage extends StatelessWidget {
@@ -11,6 +10,8 @@ class TestWeatherPage extends StatelessWidget {
 
   late double lon = 6.2088;
   late double lat = 106.8456;
+
+  TestWeatherPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,12 +26,12 @@ class TestWeatherPage extends StatelessWidget {
       body: BlocBuilder<CurrentWeatherBloc, CurrentWeatherState>(
         builder: (context, state) {
           if (state is WeatherLoading) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           } else if (state is WeatherHasData) {
             return Column(
-              key: Key('weather_data'),
+              key: const Key('weather_data'),
               children: [
                 Column(
                   children: [
@@ -40,11 +41,11 @@ class TestWeatherPage extends StatelessWidget {
               ],
             );
           } else if (state is WeatherError) {
-            return Center(
+            return const Center(
               child: Text('Something went wrong!'),
             );
           } else {
-            return SizedBox();
+            return const SizedBox();
           }
         },
       ),
