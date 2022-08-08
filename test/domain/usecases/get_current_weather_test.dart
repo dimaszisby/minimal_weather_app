@@ -25,7 +25,7 @@ void main() {
     minTemperature: 26,
     pressure: 1000,
     humidity: 1000,
-    cloud: 'cloud',
+    cloud: 100,
     winSpeed: 3,
     visibility: 1000,
   );

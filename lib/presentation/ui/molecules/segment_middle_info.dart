@@ -165,7 +165,7 @@ class MiddleInfoSegment extends StatelessWidget {
                         height: 10,
                       ),
                       Text(
-                        humidity,
+                        '${humidity}%',
                         style: const TextStyle(
                           color: Colors.white,
                           fontSize: 24,

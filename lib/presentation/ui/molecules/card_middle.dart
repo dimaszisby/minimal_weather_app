@@ -63,7 +63,7 @@ class MiddleInfoCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 5,),
                   Text(
-                    windSpeed,
+                    '${windSpeed}%',
                     style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
