@@ -26,7 +26,7 @@ class CurrentWeather extends Equatable {
   final int pressure;
   final int humidity;
   final double winSpeed;
-  final String cloud;
+  final int cloud;
   final int visibility;
 
   @override

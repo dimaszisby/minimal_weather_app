@@ -35,7 +35,7 @@ class CurrentWeatherModel with ChangeNotifier {
   final int pressure;
   final int humidity;
   final double winSpeed;
-  final String cloud;
+  final int cloud;
   final int visibility;
 
   factory CurrentWeatherModel.fromJson(Map<String, dynamic> json) =>
@@ -50,7 +50,7 @@ class CurrentWeatherModel with ChangeNotifier {
         pressure: json['main']['pressure'],
         humidity: json['main']['humidity'],
         winSpeed: json['wind']['speed'],
-        cloud: json['weather'][0]['description'],
+        cloud: json['clouds']['all'],
         visibility: json['visibility'],
       );
 
@@ -64,7 +64,6 @@ class CurrentWeatherModel with ChangeNotifier {
         'weather': [
           {
             'main': main,
-            'description': cloud,
           },
         ],
         'main': {
@@ -79,6 +78,9 @@ class CurrentWeatherModel with ChangeNotifier {
           'speed': winSpeed,
         },
         'visibility': visibility,
+        'clouds': {
+          'all': cloud,
+        }
       };
 
   CurrentWeather toEntity() => CurrentWeather(

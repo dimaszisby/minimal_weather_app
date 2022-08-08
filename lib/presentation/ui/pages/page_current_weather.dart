@@ -70,7 +70,7 @@ class _CurrentWeatherPageState extends State<CurrentWeatherPage> {
                         iconCode: state.result.iconCode,
                       ),
                       MiddleInfoCard(
-                        windSpeed: state.result.cloud,
+                        windSpeed: "${state.result.cloud}",
                         cloud: '${state.result.winSpeed}',
                         visibility: '${state.result.visibility}',
                       ),
