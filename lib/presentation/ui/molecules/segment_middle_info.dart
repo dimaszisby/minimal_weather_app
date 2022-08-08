@@ -41,7 +41,7 @@ class MiddleInfoSegment extends StatelessWidget {
                 ),
               
                 Text(
-                  ' ${double.parse(temperature).toStringAsFixed(0)}°',
+                  '${double.parse(temperature).toStringAsFixed(0)}°C',
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 48,
@@ -74,7 +74,7 @@ class MiddleInfoSegment extends StatelessWidget {
                       ),
                       const SizedBox(height: 10,),
                       Text(
-                        '${double.parse(mintemp).toStringAsFixed(0)}°',
+                        '${double.parse(mintemp).toStringAsFixed(0)}°C',
                         style: const TextStyle(
                           color: Colors.white,
                           fontSize: 24,
@@ -122,7 +122,7 @@ class MiddleInfoSegment extends StatelessWidget {
                       ),
                       const SizedBox(height: 10,),
                       Text(
-                        '${double.parse(maxTemp).toStringAsFixed(0)}°',
+                        '${double.parse(maxTemp).toStringAsFixed(0)}°C',
                         style: const TextStyle(
                           color: Colors.white,
                           fontSize: 24,

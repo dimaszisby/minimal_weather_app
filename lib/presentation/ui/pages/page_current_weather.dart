@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 import '../../bloc/current_weather/current_weather_bloc.dart';
 import '../../bloc/current_weather/current_weather_state.dart';
@@ -35,7 +36,7 @@ class _CurrentWeatherPageState extends State<CurrentWeatherPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Colors.grey,
+        color: HexColor("#1A1A1A"),
         child: Column(
           children: [
             SizedBox(
