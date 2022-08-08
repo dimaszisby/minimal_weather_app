@@ -10,7 +10,7 @@ class CoordinateCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.07,
+      padding: const EdgeInsets.only(top: 15, bottom: 15),
       margin: const EdgeInsets.all(10),
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(10)),

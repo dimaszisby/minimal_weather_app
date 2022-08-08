@@ -21,13 +21,11 @@ class MiddleInfoSegment extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 10, bottom: 10),
-      height: MediaQuery.of(context).size.height * 0.35,
+      margin: const EdgeInsets.only(top: 10, bottom: 30),
+      // height: MediaQuery.of(context).size.height * 0.35,
       child: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
+          Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -39,7 +37,6 @@ class MiddleInfoSegment extends StatelessWidget {
                     fontWeight: FontWeight.w300,
                   ),
                 ),
-              
                 Text(
                   '${double.parse(temperature).toStringAsFixed(0)}°C',
                   style: const TextStyle(
@@ -53,7 +50,8 @@ class MiddleInfoSegment extends StatelessWidget {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.15,
               width: MediaQuery.of(context).size.height * 0.15,
-              child: Image.asset('assets/images/menu_button.png'),),
+              child: Image.asset('assets/images/menu_button.png'),
+            ),
           ]),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -72,7 +70,9 @@ class MiddleInfoSegment extends StatelessWidget {
                           fontWeight: FontWeight.w300,
                         ),
                       ),
-                      const SizedBox(height: 10,),
+                      const SizedBox(
+                        height: 10,
+                      ),
                       Text(
                         '${double.parse(mintemp).toStringAsFixed(0)}°C',
                         style: const TextStyle(
@@ -83,7 +83,9 @@ class MiddleInfoSegment extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 30,),
+                  const SizedBox(
+                    height: 30,
+                  ),
                   Column(
                     children: [
                       const Text(
@@ -94,7 +96,9 @@ class MiddleInfoSegment extends StatelessWidget {
                           fontWeight: FontWeight.w300,
                         ),
                       ),
-                      const SizedBox(height: 10,),
+                      const SizedBox(
+                        height: 10,
+                      ),
                       Text(
                         pressure,
                         style: const TextStyle(
@@ -120,7 +124,9 @@ class MiddleInfoSegment extends StatelessWidget {
                           fontWeight: FontWeight.w300,
                         ),
                       ),
-                      const SizedBox(height: 10,),
+                      const SizedBox(
+                        height: 10,
+                      ),
                       Text(
                         '${double.parse(maxTemp).toStringAsFixed(0)}°C',
                         style: const TextStyle(
@@ -131,7 +137,9 @@ class MiddleInfoSegment extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 30,),
+                  const SizedBox(
+                    height: 30,
+                  ),
                   Column(
                     children: [
                       const Text(
@@ -142,7 +150,9 @@ class MiddleInfoSegment extends StatelessWidget {
                           fontWeight: FontWeight.w300,
                         ),
                       ),
-                      const SizedBox(height: 10,),
+                      const SizedBox(
+                        height: 10,
+                      ),
                       Text(
                         humidity,
                         style: const TextStyle(
