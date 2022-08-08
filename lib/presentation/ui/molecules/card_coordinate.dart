@@ -10,8 +10,18 @@ class CoordinateCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(top: 15, bottom: 15),
-      margin: const EdgeInsets.all(10),
+      padding: const EdgeInsets.only(
+        top: 15,
+        bottom: 15,
+        left: 5,
+        right: 5,
+      ),
+      margin: const EdgeInsets.only(
+        top: 30,
+        bottom: 10,
+        left: 50,
+        right: 50,
+      ),
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(10)),
         color: Colors.white,

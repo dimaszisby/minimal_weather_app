@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '/data/constants.dart';
+
 class MiddleInfoSegment extends StatelessWidget {
   const MiddleInfoSegment({
     Key? key,
@@ -9,6 +11,7 @@ class MiddleInfoSegment extends StatelessWidget {
     required this.maxTemp,
     required this.pressure,
     required this.humidity,
+    required this.iconCode,
   }) : super(key: key);
 
   final String main;
@@ -17,12 +20,12 @@ class MiddleInfoSegment extends StatelessWidget {
   final String maxTemp;
   final String pressure;
   final String humidity;
+  final String iconCode;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 10, bottom: 30),
-      // height: MediaQuery.of(context).size.height * 0.35,
+      margin: const EdgeInsets.only(bottom: 30),
       child: Column(
         children: [
           Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
@@ -47,10 +50,18 @@ class MiddleInfoSegment extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.15,
-              width: MediaQuery.of(context).size.height * 0.15,
-              child: Image.asset('assets/images/menu_button.png'),
+            Container(
+              width: MediaQuery.of(context).size.width * 0.3,
+              height: MediaQuery.of(context).size.width * 0.4,
+              decoration: BoxDecoration(
+                // color: Colors.amber,
+                image: DecorationImage(
+                  image: NetworkImage(
+                    Urls.weatherIcon(iconCode),
+                  ),
+                  fit: BoxFit.fitHeight,
+                ),
+              ),
             ),
           ]),
           Row(

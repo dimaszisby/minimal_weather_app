@@ -65,6 +65,7 @@ class _CurrentWeatherPageState extends State<CurrentWeatherPage> {
                         maxTemp: '${state.result.maxTemperature}',
                         pressure: '${state.result.pressure}',
                         humidity: '${state.result.humidity}',
+                        iconCode: state.result.iconCode,
                       ),
                       MiddleInfoCard(
                         windSpeed: state.result.cloud,

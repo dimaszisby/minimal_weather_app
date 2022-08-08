@@ -26,6 +26,7 @@ void main() {
     lon: 6.2088,
     lat: 106.8456,
     main: 'cloudy',
+    iconCode: '04d',
     temperature: 31,
     maxTemperature: 34,
     minTemperature: 26,

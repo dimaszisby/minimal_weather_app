@@ -5,6 +5,7 @@ class CurrentWeather extends Equatable {
     required this.lon, //coord --> lon
     required this.lat, //coord --> lat
     required this.main, //weather ->main (the weather condition)
+    required this.iconCode,
     required this.temperature, // main -> temp
     required this.minTemperature, //main -> temp_min
     required this.maxTemperature, //main -> temp_max
@@ -18,6 +19,7 @@ class CurrentWeather extends Equatable {
   final double lon;
   final double lat;
   final String main;
+  final String iconCode;
   final double temperature;
   final double minTemperature;
   final double maxTemperature;
@@ -32,6 +34,7 @@ class CurrentWeather extends Equatable {
         lon,
         lat,
         main,
+        iconCode,
         temperature,
         minTemperature,
         maxTemperature,

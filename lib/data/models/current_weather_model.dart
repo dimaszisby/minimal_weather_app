@@ -14,6 +14,7 @@ class CurrentWeatherModel with ChangeNotifier {
     required this.lon, //coord --> lon
     required this.lat, //coord --> lat
     required this.main, //weather ->main (the weather condition)
+    required this.iconCode,
     required this.temperature, // main -> temp
     required this.minTemperature, //main -> temp_min
     required this.maxTemperature, //main -> temp_max
@@ -27,6 +28,7 @@ class CurrentWeatherModel with ChangeNotifier {
   final double lon;
   final double lat;
   final String main;
+  final String iconCode;
   final double temperature;
   final double minTemperature;
   final double maxTemperature;
@@ -41,6 +43,7 @@ class CurrentWeatherModel with ChangeNotifier {
         lon: json['coord']['lon'],
         lat: json['coord']['lat'],
         main: json['weather'][0]['main'],
+        iconCode: json['weather'][0]['icon'],
         temperature: json['main']['temp'],
         minTemperature: json['main']['temp_min'],
         maxTemperature: json['main']['temp_max'],
@@ -65,6 +68,7 @@ class CurrentWeatherModel with ChangeNotifier {
           },
         ],
         'main': {
+          'icon': iconCode,
           'temp': temperature,
           'temp_max': maxTemperature,
           'temp_min': minTemperature,
@@ -81,6 +85,7 @@ class CurrentWeatherModel with ChangeNotifier {
         lon: lon,
         lat: lat,
         main: main,
+        iconCode: iconCode,
         temperature: temperature,
         minTemperature: minTemperature,
         maxTemperature: maxTemperature,
@@ -96,6 +101,7 @@ class CurrentWeatherModel with ChangeNotifier {
         lon,
         lat,
         main,
+        iconCode,
         temperature,
         minTemperature,
         maxTemperature,
