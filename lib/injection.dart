@@ -6,12 +6,12 @@ import 'data/datasources/remote_data_source.dart';
 import 'data/repositories/weather_repository_impl.dart';
 import 'domain/repositories/weather_repository.dart';
 import 'domain/usecases/get_current_weather.dart';
+
 import 'presentation/bloc/current_weather/current_weather_bloc.dart';
 
 final locator = GetIt.instance;
 
 void initLocator() {
-
   // bloc
   locator.registerFactory(() => CurrentWeatherBloc(locator()));
 
@@ -32,7 +32,4 @@ void initLocator() {
   );
 
   locator.registerLazySingleton(() => http.Client());
-
-  //for debugging to be deleted
-  locator.registerLazySingleton(() => WeatherHasData(locator()));
 }

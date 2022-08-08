@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'package:minimal_weather_app/injection.dart';
-import 'package:minimal_weather_app/presentation/bloc/current_weather/current_weather_bloc.dart';
-import 'package:minimal_weather_app/presentation/ui/pages/page_current_weather.dart';
-
 import 'injection.dart' as di;
+
+import './injection.dart';
+import './presentation/bloc/current_weather/current_weather_bloc.dart';
+import './presentation/ui/pages/page_current_weather.dart';
 
 void main() {
   initLocator();

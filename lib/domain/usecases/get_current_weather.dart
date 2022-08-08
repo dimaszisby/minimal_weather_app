@@ -4,7 +4,6 @@ import '../../data/failure.dart';
 import '../entities/current_weather.dart';
 import '../repositories/weather_repository.dart';
 
-
 class GetCurrentWeather {
   final WeatherRepository repository;
 

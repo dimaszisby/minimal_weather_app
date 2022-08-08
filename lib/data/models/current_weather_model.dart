@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 
-import '/domain/entities/current_weather.dart';
+import '../../domain/entities/current_weather.dart';
 
 CurrentWeatherModel currentWeatherModelFromJson(String str) =>
     CurrentWeatherModel.fromJson(json.decode(str));
