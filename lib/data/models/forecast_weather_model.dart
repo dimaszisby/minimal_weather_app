@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:flutter/material.dart';
 
 import '../../domain/entities/forecast_weather.dart';
 
@@ -9,58 +8,45 @@ ForecastWeatherModel currentWeatherModelFromJson(String str) =>
 String currentWeatherModelToJson(ForecastWeatherModel data) =>
     json.encode(data.toJson());
 
-class ForecastWeatherModel with ChangeNotifier {
-  ForecastWeatherModel({
-    required this.cod,
-    required this.message,
-    required this.cnt,
-    required this.forecastList,
-  });
+class ForecastWeatherModel {
+  late List<ForecastWeatherItem> forecastItems;
 
-  final String cod;
-  final int message;
-  final int cnt;
-  final List<ForecastItemModel> forecastList;
+  ForecastWeatherModel({required this.forecastItems});
 
-  factory ForecastWeatherModel.fromJson(Map<String, dynamic> json) =>
-      ForecastWeatherModel(
-        cod: json['cod'],
-        message: json['message'],
-        cnt: json['cnt'],
-        forecastList: json['list'],
-      );
+  ForecastWeatherModel.fromJson(Map<String, dynamic> json) {
+    if (json['list'] != null) {
+      forecastItems = <ForecastWeatherItem>[];
+      json['list'].forEach((v) {
+        forecastItems.add(ForecastWeatherItem.fromJson(v));
+      });
+    }
+  }
 
   Map<String, dynamic> toJson() => {
-        'cod': cod,
-        'message': message,
-        'cnt': cnt,
-        'list': forecastList, 
+        'list': forecastItems,
       };
 
-  ForecastWeatherEntity toEntity() => ForecastWeatherEntity(
-        cod: cod,
-        message: message,
-        cnt: cnt,
-        forecastList: forecastList,
-      );
+  ForecastWeatherEntity toEntity() =>
+      ForecastWeatherEntity(forecastItems: forecastItems);
 
   @override
-  List<Object?> get props => [
-        cod,
-        message,
-        cnt,
-        forecastList,
-      ];
+  List<Object?> get props => [forecastItems];
 }
 
-class ForecastItemModel with ChangeNotifier {
-  ForecastItemModel({
+class ForecastWeatherItem extends ForecastItemEntity {
+  ForecastWeatherItem({
     required this.main,
     required this.iconCode,
     required this.dateTime,
     required this.temperature,
     required this.winSpeed,
-  });
+  }) : super(
+          main: main,
+          iconCode: iconCode,
+          dateTime: dateTime,
+          temperature: temperature,
+          winSpeed: winSpeed,
+        );
 
   final String main;
   final String iconCode;
@@ -68,36 +54,32 @@ class ForecastItemModel with ChangeNotifier {
   final double temperature;
   final double winSpeed;
 
-  factory ForecastItemModel.fromJson(Map<String, dynamic> json) =>
-      ForecastItemModel(
-        main: json['list']['weather'][0]['main'],
-        iconCode: json['list']['weather'][0]['icon'],
-        dateTime: json['list']['dt_txt'],
-        temperature: json['list']['main']['temp'],
-        winSpeed: json['list']['wind']['speed'],
+  factory ForecastWeatherItem.fromJson(Map<String, dynamic> json) =>
+      ForecastWeatherItem(
+        main: json['weather'][0]['main'],
+        iconCode: json['weather'][0]['icon'],
+        dateTime: json['dt_txt'],
+        temperature: json['main']['temp'],
+        winSpeed: json['wind']['speed'],
       );
 
   Map<String, dynamic> toJson() => {
-        'list': [
+        'weather': [
           {
-            'weather': [
-              {
-                'main': main,
-              },
-            ],
-            'main': {
-              'icon': iconCode,
-              'temp': temperature,
-            },
-            'wind': {
-              'speed': winSpeed,
-            },
-            'dt_txt': dateTime,
-          }
-        ]
+            'main': main,
+          },
+        ],
+        'main': {
+          'icon': iconCode,
+          'temp': temperature,
+        },
+        'wind': {
+          'speed': winSpeed,
+        },
+        'dt_txt': dateTime,
       };
 
-  ForecastList toEntity() => ForecastList(
+  ForecastItemEntity toEntity() => ForecastItemEntity(
         main: main,
         iconCode: iconCode,
         dateTime: dateTime,

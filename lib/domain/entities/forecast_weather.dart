@@ -2,28 +2,19 @@ import 'package:equatable/equatable.dart';
 
 class ForecastWeatherEntity extends Equatable {
   const ForecastWeatherEntity({
-    required this.cod,
-    required this.message,
-    required this.cnt,
-    required this.forecastList,
+    required this.forecastItems,
   });
 
-  final String cod;
-  final int message;
-  final int cnt;
-  final List<ForecastList> forecastList;
+  final List<ForecastItemEntity> forecastItems;
 
   @override
   List<Object?> get props => [
-        cod,
-        message,
-        cnt,
-        forecastList,
+        forecastItems,
       ];
 }
 
-class ForecastList extends Equatable {
-  const ForecastList({
+class ForecastItemEntity extends Equatable {
+  const ForecastItemEntity({
     required this.main,
     required this.iconCode,
     required this.dateTime,
