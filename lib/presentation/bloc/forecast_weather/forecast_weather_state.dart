@@ -24,9 +24,9 @@ class WeatherError extends ForecastWeatherState {
 }
 
 class WeatherHasData extends ForecastWeatherState {
-  final ForecastWeatherEntity result;
+  final List<ForecastItemEntity> result;
 
-  const WeatherHasData(this.result);
+  const WeatherHasData({required this.result});
 
   @override
   List<Object?> get props => [result];
