@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:minimal_weather_app/presentation/bloc/forecast_weather/forecast_weather_bloc.dart';
 import 'package:minimal_weather_app/presentation/bloc/forecast_weather/forecast_weather_state.dart';
 import 'package:minimal_weather_app/presentation/ui/molecules/card_forecast_Item.dart';
@@ -45,8 +46,11 @@ class _ForecastCardState extends State<ForecastCard> {
               return ListView.builder(
                 itemCount: state.result.length,
                 itemBuilder: (context, index) {
+                  var date = state.result[index].dateTime;
+                  var fomattedDate = DateTime.tryParse(date);
                   return ForecastItemCard(
-                    dateTime: state.result[index].dateTime,
+                    day: DateFormat.E().format(fomattedDate!),
+                    hour: DateFormat.jm().format(fomattedDate),
                     main: state.result[index].main,
                     icon: state.result[index].iconCode,
                     temp: '${state.result[index].temperature}',

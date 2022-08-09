@@ -52,7 +52,7 @@ class ForecastWeatherItem extends ForecastItemEntity {
   final String iconCode;
   final String dateTime;
   final double temperature;
-  final double winSpeed;
+  final num winSpeed;
 
   factory ForecastWeatherItem.fromJson(Map<String, dynamic> json) =>
       ForecastWeatherItem(

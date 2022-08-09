@@ -26,6 +26,7 @@ class WeatherRepositoryImpl implements WeatherRepository {
     }
   }
 
+  @override
   Future<Either<Failure, ForecastWeatherEntity>> getForecastWeather(double lon, double lat) async {
         try {
       final result = await remoteDataSource.getForecastWeather(lon, lat);

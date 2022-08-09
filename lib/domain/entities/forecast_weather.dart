@@ -26,7 +26,7 @@ class ForecastItemEntity extends Equatable {
   final String iconCode;
   final String dateTime;
   final double temperature;
-  final double winSpeed;
+  final num winSpeed;
 
   @override
   List<Object?> get props => [
