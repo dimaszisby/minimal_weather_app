@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
-class CurrentWeather extends Equatable {
-  const CurrentWeather({
+class CurrentWeatherEntity extends Equatable {
+  const CurrentWeatherEntity({
     required this.lon, //coord --> lon
     required this.lat, //coord --> lat
     required this.main, //weather ->main (the weather condition)

@@ -15,7 +15,7 @@ void main() {
     usecase = GetCurrentWeather(mockWeatherRepository);
   });
 
-  const testWeatherDetail = CurrentWeather(
+  const testWeatherDetail = CurrentWeatherEntity(
     lon: 6.2088,
     lat: 106.8456,
     main: 'cloudy',

@@ -14,7 +14,7 @@ class WeatherRepositoryImpl implements WeatherRepository {
   WeatherRepositoryImpl({required this.remoteDataSource});
 
   @override
-  Future<Either<Failure, CurrentWeather>> getCurrentWeather(double lon, double lat) async {
+  Future<Either<Failure, CurrentWeatherEntity>> getCurrentWeather(double lon, double lat) async {
     try {
       final result = await remoteDataSource.getCurrentWeather(lon, lat);
       print('[REPO Impl]: ${result.props}');

@@ -11,6 +11,50 @@ String currentWeatherModelToJson(ForecastWeatherModel data) =>
 
 class ForecastWeatherModel with ChangeNotifier {
   ForecastWeatherModel({
+    required this.cod,
+    required this.message,
+    required this.cnt,
+    required this.forecastList,
+  });
+
+  final String cod;
+  final int message;
+  final int cnt;
+  final List<ForecastItemModel> forecastList;
+
+  factory ForecastWeatherModel.fromJson(Map<String, dynamic> json) =>
+      ForecastWeatherModel(
+        cod: json['cod'],
+        message: json['message'],
+        cnt: json['cnt'],
+        forecastList: json['list'],
+      );
+
+  Map<String, dynamic> toJson() => {
+        'cod': cod,
+        'message': message,
+        'cnt': cnt,
+        'list': forecastList, 
+      };
+
+  ForecastWeather toEntity() => ForecastWeather(
+        cod: cod,
+        message: message,
+        cnt: cnt,
+        forecastList: forecastList,
+      );
+
+  @override
+  List<Object?> get props => [
+        cod,
+        message,
+        cnt,
+        forecastList,
+      ];
+}
+
+class ForecastItemModel with ChangeNotifier {
+  ForecastItemModel({
     required this.main,
     required this.iconCode,
     required this.dateTime,
@@ -24,8 +68,8 @@ class ForecastWeatherModel with ChangeNotifier {
   final double temperature;
   final double winSpeed;
 
-  factory ForecastWeatherModel.fromJson(Map<String, dynamic> json) =>
-      ForecastWeatherModel(
+  factory ForecastItemModel.fromJson(Map<String, dynamic> json) =>
+      ForecastItemModel(
         main: json['list']['weather'][0]['main'],
         iconCode: json['list']['weather'][0]['icon'],
         dateTime: json['list']['dt_txt'],
@@ -53,7 +97,7 @@ class ForecastWeatherModel with ChangeNotifier {
         ]
       };
 
-  ForecastWeather toEntity() => ForecastWeather(
+  ForecastList toEntity() => ForecastList(
         main: main,
         iconCode: iconCode,
         dateTime: dateTime,

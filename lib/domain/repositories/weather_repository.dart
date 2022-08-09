@@ -5,7 +5,7 @@ import '../../data/failure.dart';
 import '../entities/current_weather.dart';
 
 abstract class WeatherRepository {
-  Future<Either<Failure, CurrentWeather>> getCurrentWeather(
+  Future<Either<Failure, CurrentWeatherEntity>> getCurrentWeather(
       double lon, double lat);
 
   Future<Either<Failure, ForecastWeather>> getForecastWeather(double lon, double lat);

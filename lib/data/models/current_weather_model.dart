@@ -83,7 +83,7 @@ class CurrentWeatherModel with ChangeNotifier {
         }
       };
 
-  CurrentWeather toEntity() => CurrentWeather(
+  CurrentWeatherEntity toEntity() => CurrentWeatherEntity(
         lon: lon,
         lat: lat,
         main: main,

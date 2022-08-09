@@ -23,7 +23,7 @@ class WeatherError extends CurrentWeatherState {
 }
 
 class WeatherHasData extends CurrentWeatherState {
-  final CurrentWeather result;
+  final CurrentWeatherEntity result;
 
   const WeatherHasData(this.result);
 

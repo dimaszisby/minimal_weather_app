@@ -22,7 +22,7 @@ void main() {
     weatherBloc = CurrentWeatherBloc(mockGetCurrentWeather);
   });
 
-  const tWeather = CurrentWeather(
+  const tWeather = CurrentWeatherEntity(
     lon: 6.2088,
     lat: 106.8456,
     main: 'cloudy',

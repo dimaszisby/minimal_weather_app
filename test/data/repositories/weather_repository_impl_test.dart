@@ -37,7 +37,7 @@ void main() {
     visibility: 1000,
   );
 
-  const tCurrentWeather = CurrentWeather(
+  const tCurrentWeather = CurrentWeatherEntity(
     lon: 6.2088,
     lat: 106.8456,
     main: 'cloudy',

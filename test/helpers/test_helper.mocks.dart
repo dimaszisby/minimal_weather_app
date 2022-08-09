@@ -72,14 +72,14 @@ class MockWeatherRepository extends _i1.Mock implements _i6.WeatherRepository {
   }
 
   @override
-  _i7.Future<_i2.Either<_i8.Failure, _i9.CurrentWeather>> getCurrentWeather(
+  _i7.Future<_i2.Either<_i8.Failure, _i9.CurrentWeatherEntity>> getCurrentWeather(
           double? lon, double? lat) =>
       (super.noSuchMethod(Invocation.method(#getCurrentWeather, [lon, lat]),
               returnValue:
-                  _i7.Future<_i2.Either<_i8.Failure, _i9.CurrentWeather>>.value(
-                      _FakeEither_0<_i8.Failure, _i9.CurrentWeather>(this,
+                  _i7.Future<_i2.Either<_i8.Failure, _i9.CurrentWeatherEntity>>.value(
+                      _FakeEither_0<_i8.Failure, _i9.CurrentWeatherEntity>(this,
                           Invocation.method(#getCurrentWeather, [lon, lat]))))
-          as _i7.Future<_i2.Either<_i8.Failure, _i9.CurrentWeather>>);
+          as _i7.Future<_i2.Either<_i8.Failure, _i9.CurrentWeatherEntity>>);
   @override
   _i7.Future<_i2.Either<_i8.Failure, _i10.ForecastWeather>> getForecastWeather(
           double? lon, double? lat) =>
