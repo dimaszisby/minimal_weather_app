@@ -24,7 +24,7 @@ class WeatherError extends ForecastWeatherState {
 }
 
 class WeatherHasData extends ForecastWeatherState {
-  final ForecastWeather result;
+  final ForecastWeatherEntity result;
 
   const WeatherHasData(this.result);
 

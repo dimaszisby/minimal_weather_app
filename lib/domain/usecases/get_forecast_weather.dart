@@ -9,7 +9,7 @@ class GetForecastWeather{
 
   GetForecastWeather(this.repository);
 
-  Future<Either<Failure, ForecastWeather>> execute(double lon, double lat) {
+  Future<Either<Failure, ForecastWeatherEntity>> execute(double lon, double lat) {
     print('[Use case]: GET current weather');
     return repository.getForecastWeather(lon, lat);
   }

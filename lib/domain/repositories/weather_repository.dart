@@ -8,5 +8,5 @@ abstract class WeatherRepository {
   Future<Either<Failure, CurrentWeatherEntity>> getCurrentWeather(
       double lon, double lat);
 
-  Future<Either<Failure, ForecastWeather>> getForecastWeather(double lon, double lat);
+  Future<Either<Failure, ForecastWeatherEntity>> getForecastWeather(double lon, double lat);
 }

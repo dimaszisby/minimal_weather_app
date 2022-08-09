@@ -37,7 +37,7 @@ class ForecastWeatherModel with ChangeNotifier {
         'list': forecastList, 
       };
 
-  ForecastWeather toEntity() => ForecastWeather(
+  ForecastWeatherEntity toEntity() => ForecastWeatherEntity(
         cod: cod,
         message: message,
         cnt: cnt,

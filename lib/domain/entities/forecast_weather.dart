@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
-class ForecastWeather extends Equatable {
-  const ForecastWeather({
+class ForecastWeatherEntity extends Equatable {
+  const ForecastWeatherEntity({
     required this.cod,
     required this.message,
     required this.cnt,

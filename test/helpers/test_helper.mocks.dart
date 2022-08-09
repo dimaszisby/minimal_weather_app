@@ -81,14 +81,14 @@ class MockWeatherRepository extends _i1.Mock implements _i6.WeatherRepository {
                           Invocation.method(#getCurrentWeather, [lon, lat]))))
           as _i7.Future<_i2.Either<_i8.Failure, _i9.CurrentWeatherEntity>>);
   @override
-  _i7.Future<_i2.Either<_i8.Failure, _i10.ForecastWeather>> getForecastWeather(
+  _i7.Future<_i2.Either<_i8.Failure, _i10.ForecastWeatherEntity>> getForecastWeather(
           double? lon, double? lat) =>
       (super.noSuchMethod(Invocation.method(#getForecastWeather, [lon, lat]),
               returnValue:
-                  _i7.Future<_i2.Either<_i8.Failure, _i10.ForecastWeather>>.value(
-                      _FakeEither_0<_i8.Failure, _i10.ForecastWeather>(this,
+                  _i7.Future<_i2.Either<_i8.Failure, _i10.ForecastWeatherEntity>>.value(
+                      _FakeEither_0<_i8.Failure, _i10.ForecastWeatherEntity>(this,
                           Invocation.method(#getForecastWeather, [lon, lat]))))
-          as _i7.Future<_i2.Either<_i8.Failure, _i10.ForecastWeather>>);
+          as _i7.Future<_i2.Either<_i8.Failure, _i10.ForecastWeatherEntity>>);
 }
 
 /// A class which mocks [RemoteDataSource].
