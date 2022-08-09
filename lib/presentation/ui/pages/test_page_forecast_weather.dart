@@ -43,10 +43,10 @@ class _MyWidgetState extends State<TestForecastWeatherPage> {
                 
                 return Flexible(
                   child: ListView.builder(
-                    itemCount: state.result.props.length,
+                    itemCount: state.result.length,
                     itemBuilder: (context, index) {
                       // var forecastitem = state.result;
-                      return Text('${state.result.props}');
+                      return Text('${state.result[index].dateTime}');
                     },
                   ),
                 );
