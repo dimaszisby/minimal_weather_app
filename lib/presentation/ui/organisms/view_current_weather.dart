@@ -10,14 +10,14 @@ import '../molecules/card_middle.dart';
 import '../molecules/segment_header.dart';
 import '../molecules/segment_middle_info.dart';
 
-class CurrentWeatherPage extends StatefulWidget {
-  const CurrentWeatherPage({Key? key}) : super(key: key);
+class CurrentWeatherView extends StatefulWidget {
+  const CurrentWeatherView({Key? key}) : super(key: key);
 
   @override
-  State<CurrentWeatherPage> createState() => _CurrentWeatherPageState();
+  State<CurrentWeatherView> createState() => _CurrentWeatherViewState();
 }
 
-class _CurrentWeatherPageState extends State<CurrentWeatherPage> {
+class _CurrentWeatherViewState extends State<CurrentWeatherView> {
   final tLon = 106.8456; //TODO: Change with GeoLocator and GeoCoder
   final tLat = 6.2088;
   @override

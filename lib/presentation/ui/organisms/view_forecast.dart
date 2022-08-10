@@ -7,14 +7,14 @@ import '../../bloc/forecast_weather/forecast_weather_bloc.dart';
 import '../../bloc/forecast_weather/forecast_weather_state.dart';
 import '../molecules/card_forecast_Item.dart';
 
-class ForecastCard extends StatefulWidget {
-  const ForecastCard({Key? key}) : super(key: key);
+class ForecastView extends StatefulWidget {
+  const ForecastView({Key? key}) : super(key: key);
 
   @override
-  State<ForecastCard> createState() => _ForecastCardState();
+  State<ForecastView> createState() => _ForecastViewState();
 }
 
-class _ForecastCardState extends State<ForecastCard> {
+class _ForecastViewState extends State<ForecastView> {
   final tLon = 106.8456; //TODO: Change with GeoLocator and GeoCoder
   final tLat = 6.2088;
 

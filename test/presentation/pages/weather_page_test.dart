@@ -10,7 +10,7 @@ import 'package:minimal_weather_app/domain/entities/current_weather.dart';
 import 'package:minimal_weather_app/presentation/bloc/current_weather/current_weather_bloc.dart';
 import 'package:minimal_weather_app/presentation/bloc/current_weather/current_weather_event.dart';
 import 'package:minimal_weather_app/presentation/bloc/current_weather/current_weather_state.dart';
-import 'package:minimal_weather_app/presentation/ui/pages/page_current_weather.dart';
+import 'package:minimal_weather_app/presentation/ui/organisms/page_current_weather.dart';
 import 'package:mocktail/mocktail.dart';
 
 class MockWeatherBloc extends MockBloc<CurrentWeatherEvent, CurrentWeatherState>
@@ -67,7 +67,7 @@ void main() {
       when(() => mockWeatherBloc.state).thenReturn(WeatherEmpty());
 
       // act
-      await tester.pumpWidget(_makeTestableWidget(const CurrentWeatherPage()));
+      await tester.pumpWidget(_makeTestableWidget(const CurrentWeatherView()));
       // await tester.enterText(find.byType(TextField), 'Jakarta');
       // await tester.testTextInput.receiveAction(TextInputAction.done);
       await tester.pumpAndSettle();
@@ -85,7 +85,7 @@ void main() {
       when(() => mockWeatherBloc.state).thenReturn(WeatherLoading());
 
       // act
-      await tester.pumpWidget(_makeTestableWidget(const CurrentWeatherPage()));
+      await tester.pumpWidget(_makeTestableWidget(const CurrentWeatherView()));
 
       // assert
       expect(find.byType(CircularProgressIndicator), equals(findsOneWidget));
@@ -99,7 +99,7 @@ void main() {
       when(() => mockWeatherBloc.state).thenReturn(const WeatherHasData(tWeather));
 
       // act
-      await tester.pumpWidget(_makeTestableWidget(const CurrentWeatherPage()));
+      await tester.pumpWidget(_makeTestableWidget(const CurrentWeatherView()));
       await tester.runAsync(() async {
         final HttpClient client = HttpClient();
         await client.getUrl(Uri.parse(Urls.weatherIcon('02d')));

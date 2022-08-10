@@ -1,8 +1,8 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 
-import 'package:minimal_weather_app/presentation/ui/molecules/card_forecast.dart';
-import 'package:minimal_weather_app/presentation/ui/pages/page_current_weather.dart';
+import 'package:minimal_weather_app/presentation/ui/organisms/view_forecast.dart';
+import 'package:minimal_weather_app/presentation/ui/organisms/view_current_weather.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class HomePage extends StatefulWidget {
@@ -121,12 +121,12 @@ class _HomePageState extends State<HomePage> {
                 style: TextStyle(fontSize: 24),
               ),
             ),
-            const ForecastCard(),
+            const ForecastView(),
           ],
         ));
   }
 
   Widget _body() {
-    return const CurrentWeatherPage();
+    return const CurrentWeatherView();
   }
 }
