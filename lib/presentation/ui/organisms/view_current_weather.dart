@@ -1,7 +1,12 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:hexcolor/hexcolor.dart';
 
+import '../../../injection.dart';
+import '../../../domain/usecases/get_current_location.dart';
 import '../../bloc/current_weather/current_weather_bloc.dart';
 import '../../bloc/current_weather/current_weather_state.dart';
 import '../../bloc/current_weather/current_weather_event.dart';
@@ -18,19 +23,46 @@ class CurrentWeatherView extends StatefulWidget {
 }
 
 class _CurrentWeatherViewState extends State<CurrentWeatherView> {
-  final tLon = 106.8456; //TODO: Change with GeoLocator and GeoCoder
-  final tLat = 6.2088;
+  final loc = locator<GetLocation>();
+
+  double tLon = 48.8566;
+  double tLat = 2.3522;
+  late String tCountry = 'Getting Data';
+
   @override
   void initState() {
     super.initState();
+    initCurrentLocaton();
     context
         .read<CurrentWeatherBloc>()
         .add(OnCoordinateChanged(lon: tLon, lat: tLat));
+    Timer(Duration(seconds: 2), () {
+      tCountry = loc.country;
+      print('AFTER TIMER : ${tCountry}');
+      setState(() {
+        
+      });
+    });
+    
+    
   }
 
-  void initCurrentLocation() {
-    //get the current location from bloc
+  initCurrentLocaton() async {
+    Position position = await loc.getGeoLocationPosition();
+    tLon = position.longitude;
+    tLat = position.latitude;
+
+    setState(() {
+      
+    });
+    loc.getAddressFromLatLong(position);
+    // print("[VIEW] Country is: $tCountry");
+    setState(() {
+    });
   }
+
+    
+  
 
   @override
   Widget build(BuildContext context) {
@@ -53,12 +85,10 @@ class _CurrentWeatherViewState extends State<CurrentWeatherView> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     key: const Key('weather_Data'),
                     children: [
-                      const HeaderSegment(
-                          country:
-                              'Indonesia'), //TODO: Replaced with GeoLocator and GeoCoding
+                      HeaderSegment(country: tCountry),
                       CoordinateCard(
-                        lon: '${state.result.lon}',
-                        lat: '${state.result.lat}',
+                        lon: '$tLon',
+                        lat: '$tLat',
                       ),
                       MiddleInfoSegment(
                         main: state.result.main,
@@ -74,7 +104,6 @@ class _CurrentWeatherViewState extends State<CurrentWeatherView> {
                         cloud: '${state.result.winSpeed}',
                         visibility: '${state.result.visibility}',
                       ),
-                      // ForecastCard(),
                     ],
                   );
                 } else if (state is WeatherError) {
