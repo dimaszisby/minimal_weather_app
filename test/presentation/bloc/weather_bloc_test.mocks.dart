@@ -55,9 +55,9 @@ class MockGetCurrentWeather extends _i1.Mock implements _i4.GetCurrentWeather {
   _i5.Future<_i3.Either<_i6.Failure, _i7.CurrentWeatherEntity>> execute(
           double? lon, double? lat) =>
       (super.noSuchMethod(Invocation.method(#execute, [lon, lat]),
-              returnValue:
-                  _i5.Future<_i3.Either<_i6.Failure, _i7.CurrentWeatherEntity>>.value(
-                      _FakeEither_1<_i6.Failure, _i7.CurrentWeatherEntity>(
-                          this, Invocation.method(#execute, [lon, lat]))))
-          as _i5.Future<_i3.Either<_i6.Failure, _i7.CurrentWeatherEntity>>);
+          returnValue:
+              _i5.Future<_i3.Either<_i6.Failure, _i7.CurrentWeatherEntity>>.value(
+                  _FakeEither_1<_i6.Failure, _i7.CurrentWeatherEntity>(
+                      this, Invocation.method(#execute, [lon, lat])))) as _i5
+          .Future<_i3.Either<_i6.Failure, _i7.CurrentWeatherEntity>>);
 }
