@@ -10,7 +10,7 @@ import 'package:minimal_weather_app/domain/entities/current_weather.dart';
 import 'package:minimal_weather_app/presentation/bloc/current_weather/current_weather_bloc.dart';
 import 'package:minimal_weather_app/presentation/bloc/current_weather/current_weather_event.dart';
 import 'package:minimal_weather_app/presentation/bloc/current_weather/current_weather_state.dart';
-import 'package:minimal_weather_app/presentation/ui/organisms/page_current_weather.dart';
+import 'package:minimal_weather_app/presentation/ui/organisms/view_current_weather.dart';
 import 'package:mocktail/mocktail.dart';
 
 class MockWeatherBloc extends MockBloc<CurrentWeatherEvent, CurrentWeatherState>
