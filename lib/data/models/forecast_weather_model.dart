@@ -34,7 +34,7 @@ class ForecastWeatherModel {
 }
 
 class ForecastWeatherItem extends ForecastItemEntity {
-  ForecastWeatherItem({
+  const ForecastWeatherItem({
     required this.main,
     required this.iconCode,
     required this.dateTime,

@@ -1,8 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:minimal_weather_app/domain/usecases/get_forecast_weather.dart';
-import 'package:minimal_weather_app/presentation/bloc/forecast_weather/forecast_weather_event.dart';
-import 'package:minimal_weather_app/presentation/bloc/forecast_weather/forecast_weather_state.dart';
 import 'package:rxdart/rxdart.dart';
+
+import '../../../domain/usecases/get_forecast_weather.dart';
+import '../../../presentation/bloc/forecast_weather/forecast_weather_event.dart';
+import '../../../presentation/bloc/forecast_weather/forecast_weather_state.dart';
 
 class ForecastWeatherBloc
     extends Bloc<ForecastWeatherEvent, ForecastWeatherState> {

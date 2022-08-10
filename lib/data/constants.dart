@@ -1,5 +1,3 @@
-import 'package:minimal_weather_app/domain/entities/forecast_weather.dart';
-
 class Urls {
   static const String baseUrl = 'http://api.openweathermap.org/data';
   static const String apiKey = 'edc5948cd7e9cc886b416b7719b0f31a';

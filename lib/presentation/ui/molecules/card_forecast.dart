@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:minimal_weather_app/presentation/bloc/forecast_weather/forecast_weather_bloc.dart';
-import 'package:minimal_weather_app/presentation/bloc/forecast_weather/forecast_weather_state.dart';
-import 'package:minimal_weather_app/presentation/ui/molecules/card_forecast_Item.dart';
 
 import '../../bloc/forecast_weather/forecast_weather_event.dart';
+import '../../bloc/forecast_weather/forecast_weather_bloc.dart';
+import '../../bloc/forecast_weather/forecast_weather_state.dart';
+import '../molecules/card_forecast_Item.dart';
 
 class ForecastCard extends StatefulWidget {
   const ForecastCard({Key? key}) : super(key: key);
@@ -31,7 +31,6 @@ class _ForecastCardState extends State<ForecastCard> {
     return Scaffold(
       body: Container(
         width: MediaQuery.of(context).size.width * 1.0,
-        // height: MediaQuery.of(context).size.height * 0.31,
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(10)),
           color: Colors.white,
