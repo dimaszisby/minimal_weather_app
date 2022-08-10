@@ -19,8 +19,8 @@ class CoordinateCard extends StatelessWidget {
       margin: const EdgeInsets.only(
         top: 30,
         bottom: 10,
-        left: 50,
-        right: 50,
+        left: 30,
+        right: 30,
       ),
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(10)),
