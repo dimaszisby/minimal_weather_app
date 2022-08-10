@@ -18,8 +18,6 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   @override
   Future<CurrentWeatherModel> getCurrentWeather(double lon, double lat) async {
     final response = await client.get(Uri.parse(Urls.currentWeather(lon, lat)));
-    print('[RDS]: ${response.body}');
-
     if (response.statusCode == 200) {
       return CurrentWeatherModel.fromJson(json.decode(response.body));
     } else {
@@ -27,11 +25,11 @@ class RemoteDataSourceImpl implements RemoteDataSource {
     }
   }
 
-    @override
-  Future<ForecastWeatherModel> getForecastWeather(double lon, double lat) async {
-    final response = await client.get(Uri.parse(Urls.forecastWeather(lon, lat)));
-    print('[RDS]: ${response.body}');
-
+  @override
+  Future<ForecastWeatherModel> getForecastWeather(
+      double lon, double lat) async {
+    final response =
+        await client.get(Uri.parse(Urls.forecastWeather(lon, lat)));
     if (response.statusCode == 200) {
       return ForecastWeatherModel.fromJson(json.decode(response.body));
     } else {
