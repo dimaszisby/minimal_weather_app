@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
+import 'package:minimal_weather_app/domain/usecases/get_current_location.dart';
 
 import './data/datasources/remote_data_source.dart';
 import './data/repositories/weather_repository_impl.dart';
@@ -15,12 +16,14 @@ void initLocator() {
   // bloc
   locator.registerFactory(() => CurrentWeatherBloc(locator()));
 
-    locator.registerFactory(() => ForecastWeatherBloc(locator()));
+  locator.registerFactory(() => ForecastWeatherBloc(locator()));
 
   // usecase
   locator.registerLazySingleton(() => GetCurrentWeather(locator()));
 
   locator.registerLazySingleton(() => GetForecastWeather(locator()));
+
+  locator.registerLazySingleton(() => GetLocation());
 
   // repository
   locator.registerLazySingleton<WeatherRepository>(
