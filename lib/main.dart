@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:minimal_weather_app/presentation/bloc/forecast_weather/forecast_weather_bloc.dart';
 import 'package:minimal_weather_app/presentation/ui/molecules/card_forecast.dart';
+import 'package:minimal_weather_app/presentation/ui/pages/page_home.dart';
 import 'package:minimal_weather_app/presentation/ui/pages/test_page_forecast_weather.dart';
+import 'package:minimal_weather_app/presentation/ui/pages/test_page_slide_up_panel.dart';
 import 'injection.dart' as di;
 
 import './injection.dart';
@@ -35,21 +37,41 @@ class MyApp extends StatelessWidget {
   //   );
   // }
 
-  @override
+  // @override
+  // Widget build(BuildContext context) {
+  //   return MultiBlocProvider(
+  //     providers: [
+  //       BlocProvider(
+  //         create: (_) => di.locator<ForecastWeatherBloc>(),
+  //       ),
+  //     ],
+  //     child: MaterialApp(
+  //       title: 'Flutter Demo',
+  //       theme: ThemeData(
+  //         primarySwatch: Colors.orange,
+  //       ),
+  //       home: SlidingUpPanelExample(),
+  //     ),
+  //   );
+  // }
+
+    @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (_) => di.locator<ForecastWeatherBloc>(),
+          create: (_) => di.locator<CurrentWeatherBloc>(),
         ),
+        BlocProvider(create: (_) => di.locator<ForecastWeatherBloc>())
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.orange,
         ),
-        home: const ForecastCard(),
+        home:  HomePage(),
       ),
     );
   }
+
 }
