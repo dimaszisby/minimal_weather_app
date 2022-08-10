@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:minimal_weather_app/presentation/bloc/forecast_weather/forecast_weather_bloc.dart';
+import 'package:minimal_weather_app/presentation/ui/molecules/card_forecast.dart';
 import 'package:minimal_weather_app/presentation/ui/pages/test_page_forecast_weather.dart';
 import 'injection.dart' as di;
 
@@ -47,7 +48,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.orange,
         ),
-        home: const TestForecastWeatherPage(),
+        home: const ForecastCard(),
       ),
     );
   }

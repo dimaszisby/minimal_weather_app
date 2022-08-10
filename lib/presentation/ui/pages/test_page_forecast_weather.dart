@@ -46,7 +46,7 @@ class _MyWidgetState extends State<TestForecastWeatherPage> {
                     itemCount: state.result.length,
                     itemBuilder: (context, index) {
                       // var forecastitem = state.result;
-                      return Text('${state.result[index].dateTime}');
+                      return Text(state.result[index].dateTime);
                     },
                   ),
                 );

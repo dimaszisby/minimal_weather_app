@@ -23,17 +23,15 @@ class ForecastItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final leftSegment = Row(
-      //Left SEGMENT
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         SizedBox(
-          width: MediaQuery.of(context).size.width * 0.2,
-          //LEFT CONTAINER
+          width: MediaQuery.of(context).size.width * 0.25,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                '$day, ',
+                day,
                 style: const TextStyle(
                     color: Colors.white,
                     fontSize: 14,
@@ -50,7 +48,6 @@ class ForecastItemCard extends StatelessWidget {
           ),
         ),
         Container(
-          //MIDDLE CONTAINER
           width: MediaQuery.of(context).size.width * 0.275,
           padding: const EdgeInsets.only(right: 10, left: 5),
           decoration: const BoxDecoration(
@@ -66,7 +63,6 @@ class ForecastItemCard extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * 0.1,
                 height: MediaQuery.of(context).size.width * 0.1,
                 decoration: BoxDecoration(
-                  // color: Colors.amber,
                   image: DecorationImage(
                     image: NetworkImage(
                       Urls.weatherIcon(icon),
@@ -88,9 +84,8 @@ class ForecastItemCard extends StatelessWidget {
     );
 
     final rightSegment = SizedBox(
-      //RIGHT SEGMENT
-      // width: MediaQuery.of(context).size.width * 0.1,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
