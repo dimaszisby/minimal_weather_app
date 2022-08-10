@@ -25,7 +25,7 @@ class ForecastItemEntity extends Equatable {
   final String main;
   final String iconCode;
   final String dateTime;
-  final double temperature;
+  final num temperature;
   final num winSpeed;
 
   @override
