@@ -1,10 +1,11 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:minimal_weather_app/data/models/forecast_weather_model.dart';
+
 
 import '../constants.dart';
 import '../exception.dart';
 import '../models/current_weather_model.dart';
+import '../models/forecast_weather_model.dart';
 
 abstract class RemoteDataSource {
   Future<CurrentWeatherModel> getCurrentWeather(num lon, num lat);

@@ -1,9 +1,9 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-
-import 'package:minimal_weather_app/presentation/ui/organisms/view_forecast.dart';
-import 'package:minimal_weather_app/presentation/ui/organisms/view_current_weather.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
+
+import '../organisms/view_forecast.dart';
+import '../organisms/view_current_weather.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
