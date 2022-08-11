@@ -19,8 +19,6 @@ class _HomePageState extends State<HomePage> {
   double _panelHeightOpen = 0;
   double _panelHeightClosed =  100;
 
-  final tLon = 106.8456; //TODO: Change with GeoLocator and GeoCoder
-  final tLat = 6.2088;
   @override
   void initState() {
     super.initState();
