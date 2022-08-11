@@ -53,7 +53,7 @@ class MockGetCurrentWeather extends _i1.Mock implements _i4.GetCurrentWeather {
       as _i2.WeatherRepository);
   @override
   _i5.Future<_i3.Either<_i6.Failure, _i7.CurrentWeatherEntity>> execute(
-          double? lon, double? lat) =>
+          num? lon, num? lat) =>
       (super.noSuchMethod(Invocation.method(#execute, [lon, lat]),
           returnValue:
               _i5.Future<_i3.Either<_i6.Failure, _i7.CurrentWeatherEntity>>.value(

@@ -73,7 +73,7 @@ class MockWeatherRepository extends _i1.Mock implements _i6.WeatherRepository {
 
   @override
   _i7.Future<_i2.Either<_i8.Failure, _i9.CurrentWeatherEntity>> getCurrentWeather(
-          double? lon, double? lat) =>
+          num? lon, num? lat) =>
       (super.noSuchMethod(Invocation.method(#getCurrentWeather, [lon, lat]),
           returnValue:
               _i7.Future<_i2.Either<_i8.Failure, _i9.CurrentWeatherEntity>>.value(
@@ -82,7 +82,7 @@ class MockWeatherRepository extends _i1.Mock implements _i6.WeatherRepository {
           .Future<_i2.Either<_i8.Failure, _i9.CurrentWeatherEntity>>);
   @override
   _i7.Future<_i2.Either<_i8.Failure, _i10.ForecastWeatherEntity>>
-      getForecastWeather(double? lon, double? lat) => (super.noSuchMethod(
+      getForecastWeather(num? lon, num? lat) => (super.noSuchMethod(
               Invocation.method(#getForecastWeather, [lon, lat]),
               returnValue:
                   _i7.Future<_i2.Either<_i8.Failure, _i10.ForecastWeatherEntity>>.value(
@@ -101,16 +101,14 @@ class MockRemoteDataSource extends _i1.Mock implements _i11.RemoteDataSource {
   }
 
   @override
-  _i7.Future<_i3.CurrentWeatherModel> getCurrentWeather(
-          double? lon, double? lat) =>
+  _i7.Future<_i3.CurrentWeatherModel> getCurrentWeather(num? lon, num? lat) =>
       (super.noSuchMethod(Invocation.method(#getCurrentWeather, [lon, lat]),
               returnValue: _i7.Future<_i3.CurrentWeatherModel>.value(
                   _FakeCurrentWeatherModel_1(
                       this, Invocation.method(#getCurrentWeather, [lon, lat]))))
           as _i7.Future<_i3.CurrentWeatherModel>);
   @override
-  _i7.Future<_i4.ForecastWeatherModel> getForecastWeather(
-          double? lon, double? lat) =>
+  _i7.Future<_i4.ForecastWeatherModel> getForecastWeather(num? lon, num? lat) =>
       (super.noSuchMethod(Invocation.method(#getForecastWeather, [lon, lat]),
               returnValue: _i7.Future<_i4.ForecastWeatherModel>.value(
                   _FakeForecastWeatherModel_2(this,
