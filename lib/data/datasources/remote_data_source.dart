@@ -8,7 +8,7 @@ import '../models/current_weather_model.dart';
 
 abstract class RemoteDataSource {
   Future<CurrentWeatherModel> getCurrentWeather(num lon, num lat);
-  Future<ForecastWeatherModel> getForecastWeather(double lon, double lat);
+  Future<ForecastWeatherModel> getForecastWeather(num lon, num lat);
 }
 
 class RemoteDataSourceImpl implements RemoteDataSource {
@@ -27,7 +27,7 @@ class RemoteDataSourceImpl implements RemoteDataSource {
 
   @override
   Future<ForecastWeatherModel> getForecastWeather(
-      double lon, double lat) async {
+      num lon, num lat) async {
     final response =
         await client.get(Uri.parse(Urls.forecastWeather(lon, lat)));
     if (response.statusCode == 200) {

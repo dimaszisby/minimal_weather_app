@@ -20,10 +20,11 @@ class ForecastView extends StatefulWidget {
 }
 
 class _ForecastViewState extends State<ForecastView> {
+  
   final loc = locator<GetLocation>();
 
-  double tLon = 106.8456;
-  double tLat = 6.2088;
+  num tLon = 106.8456;
+  num tLat = 6.2088;
 
   @override
   void initState() {

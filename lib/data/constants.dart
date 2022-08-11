@@ -4,7 +4,7 @@ class Urls {
 
   static String currentWeather(num lon, num lat) => '$baseUrl/2.5/weather?lat=$lat&lon=$lon&appid=$apiKey&units=metric';
 
-  static String forecastWeather(double lon, double lat) => '$baseUrl/2.5/forecast?lat=$lat&lon=$lon&appid=$apiKey&units=metric';
+  static String forecastWeather(num lon, num lat) => '$baseUrl/2.5/forecast?lat=$lat&lon=$lon&appid=$apiKey&units=metric';
 
   static String weatherIcon(String iconCode) =>
       'http://openweathermap.org/img/wn/$iconCode@2x.png';

@@ -8,8 +8,8 @@ abstract class ForecastWeatherEvent extends Equatable {
 }
 
 class OnTimeStampChanged extends ForecastWeatherEvent {
-  final double lon;
-  final double lat;
+  final num lon;
+  final num lat;
 
   const OnTimeStampChanged({required this.lon, required this.lat});
 
