@@ -33,18 +33,12 @@ class _CurrentWeatherViewState extends State<CurrentWeatherView> {
   void initState() {
     super.initState();
     initCurrentLocaton();
-    context
-        .read<CurrentWeatherBloc>()
-        .add(OnCoordinateChanged(lon: tLon, lat: tLat));
-    Timer(Duration(seconds: 2), () {
-      tCountry = loc.country;
-      print('AFTER TIMER : ${tCountry}');
-      setState(() {
-        
-      });
+
+    Timer(const Duration(milliseconds: 1250), () {
+      context
+          .read<CurrentWeatherBloc>()
+          .add(OnCoordinateChanged(lon: tLon, lat: tLat));
     });
-    
-    
   }
 
   initCurrentLocaton() async {
@@ -52,73 +46,73 @@ class _CurrentWeatherViewState extends State<CurrentWeatherView> {
     tLon = position.longitude;
     tLat = position.latitude;
 
-    setState(() {
-      
-    });
     loc.getAddressFromLatLong(position);
-    // print("[VIEW] Country is: $tCountry");
-    setState(() {
-    });
-  }
 
-    
-  
+    Timer(const Duration(milliseconds: 1250), () {
+      tCountry = loc.country;
+      setState(() {});
+    });
+
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
+    final body = Column(
+      children: [
+        SizedBox(
+          height: MediaQuery.of(context).size.height * 0.07,
+        ), //hardcoded for now
+        BlocBuilder<CurrentWeatherBloc, CurrentWeatherState>(
+          builder: (context, state) {
+            if (state is WeatherLoading) {
+              return const Center(child: Text('Load Data'));
+            } else if (state is WeatherHasData) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                key: const Key('weather_Data'),
+                children: [
+                  HeaderSegment(country: tCountry),
+                  CoordinateCard(
+                    lon: '$tLon',
+                    lat: '$tLat',
+                  ),
+                  MiddleInfoSegment(
+                    main: state.result.main,
+                    temperature: '${state.result.temperature}',
+                    mintemp: '${state.result.minTemperature}',
+                    maxTemp: '${state.result.maxTemperature}',
+                    pressure: '${state.result.pressure}',
+                    humidity: '${state.result.humidity}',
+                    iconCode: state.result.iconCode,
+                  ),
+                  MiddleInfoCard(
+                    windSpeed: "${state.result.cloud}",
+                    cloud: '${state.result.winSpeed}',
+                    visibility: '${state.result.visibility}',
+                  ),
+                ],
+              );
+            } else if (state is WeatherError) {
+              return const Center(
+                child: Text('Something went wrong!'),
+              );
+            } else {
+              return const Center(
+                child: Text('Initial State'),
+              );
+            }
+          },
+        ),
+      ],
+    );
+
     return Scaffold(
       body: Container(
         color: HexColor("#1A1A1A"),
-        child: Column(
-          children: [
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.07,
-            ), //hardcoded for now
-            BlocBuilder<CurrentWeatherBloc, CurrentWeatherState>(
-              builder: (context, state) {
-                if (state is WeatherLoading) {
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                } else if (state is WeatherHasData) {
-                  return Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    key: const Key('weather_Data'),
-                    children: [
-                      HeaderSegment(country: tCountry),
-                      CoordinateCard(
-                        lon: '$tLon',
-                        lat: '$tLat',
-                      ),
-                      MiddleInfoSegment(
-                        main: state.result.main,
-                        temperature: '${state.result.temperature}',
-                        mintemp: '${state.result.minTemperature}',
-                        maxTemp: '${state.result.maxTemperature}',
-                        pressure: '${state.result.pressure}',
-                        humidity: '${state.result.humidity}',
-                        iconCode: state.result.iconCode,
-                      ),
-                      MiddleInfoCard(
-                        windSpeed: "${state.result.cloud}",
-                        cloud: '${state.result.winSpeed}',
-                        visibility: '${state.result.visibility}',
-                      ),
-                    ],
-                  );
-                } else if (state is WeatherError) {
-                  return const Center(
-                    child: Text('Something went wrong!'),
-                  );
-                } else {
-                  return const Center(
-                    child: Text('Initial State'),
-                  );
-                }
-              },
-            ),
-          ],
-        ),
+        child: tCountry == 'Getting Data'
+            ? const CircularProgressIndicator()
+            : body,
       ),
     );
   }
