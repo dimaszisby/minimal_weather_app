@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
 
   double _fabHeight = 0;
   double _panelHeightOpen = 0;
-  double _panelHeightClosed =  100;
+  double _panelHeightClosed = 100;
 
   @override
   void initState() {
@@ -38,6 +38,7 @@ class _HomePageState extends State<HomePage> {
             minHeight: _panelHeightClosed,
             parallaxEnabled: true,
             parallaxOffset: .5,
+            backdropEnabled: true,
             body: _body(),
             panelBuilder: (sc) => _panel(sc),
             borderRadius: const BorderRadius.only(
@@ -116,7 +117,10 @@ class _HomePageState extends State<HomePage> {
               // color: Colors.amber,
               child: const Text(
                 'Forecast',
-                style: TextStyle(fontSize: 24),
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
             const ForecastView(),
