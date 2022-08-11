@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
+
 import '../../domain/entities/forecast_weather.dart';
 
 ForecastWeatherModel currentWeatherModelFromJson(String str) =>
@@ -8,7 +10,7 @@ ForecastWeatherModel currentWeatherModelFromJson(String str) =>
 String currentWeatherModelToJson(ForecastWeatherModel data) =>
     json.encode(data.toJson());
 
-class ForecastWeatherModel {
+class ForecastWeatherModel with ChangeNotifier {
   late List<ForecastWeatherItem> forecastItems;
 
   ForecastWeatherModel({required this.forecastItems});
