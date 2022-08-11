@@ -1,7 +1,7 @@
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 
-class GetLocation {
+class LocationServices {
 
   String location = 'Null, Press Button';
   String address = 'search';

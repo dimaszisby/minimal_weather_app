@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:intl/intl.dart';
 
-import '../../../domain/usecases/get_current_location.dart';
+import '../../../location_services.dart';
 import '../../../injection.dart';
 import '../../bloc/forecast_weather/forecast_weather_event.dart';
 import '../../bloc/forecast_weather/forecast_weather_bloc.dart';
@@ -21,7 +21,7 @@ class ForecastView extends StatefulWidget {
 
 class _ForecastViewState extends State<ForecastView> {
   
-  final loc = locator<GetLocation>();
+  final loc = locator<LocationServices>();
 
   num tLon = 106.8456;
   num tLat = 6.2088;

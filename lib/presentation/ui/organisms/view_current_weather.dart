@@ -6,7 +6,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 import '../../../injection.dart';
-import '../../../domain/usecases/get_current_location.dart';
+import '../../../location_services.dart';
 import '../../bloc/current_weather/current_weather_bloc.dart';
 import '../../bloc/current_weather/current_weather_state.dart';
 import '../../bloc/current_weather/current_weather_event.dart';
@@ -23,7 +23,7 @@ class CurrentWeatherView extends StatefulWidget {
 }
 
 class _CurrentWeatherViewState extends State<CurrentWeatherView> {
-  final loc = locator<GetLocation>();
+  final loc = locator<LocationServices>();
 
   num tLon = 48.8566;
   num tLat = 2.3522;
