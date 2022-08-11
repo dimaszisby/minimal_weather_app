@@ -7,7 +7,7 @@ import '../exception.dart';
 import '../models/current_weather_model.dart';
 
 abstract class RemoteDataSource {
-  Future<CurrentWeatherModel> getCurrentWeather(double lon, double lat);
+  Future<CurrentWeatherModel> getCurrentWeather(num lon, num lat);
   Future<ForecastWeatherModel> getForecastWeather(double lon, double lat);
 }
 
@@ -16,7 +16,7 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   RemoteDataSourceImpl({required this.client});
 
   @override
-  Future<CurrentWeatherModel> getCurrentWeather(double lon, double lat) async {
+  Future<CurrentWeatherModel> getCurrentWeather(num lon, num lat) async {
     final response = await client.get(Uri.parse(Urls.currentWeather(lon, lat)));
     if (response.statusCode == 200) {
       return CurrentWeatherModel.fromJson(json.decode(response.body));

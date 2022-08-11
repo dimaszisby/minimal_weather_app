@@ -8,8 +8,8 @@ abstract class CurrentWeatherEvent extends Equatable {
 }
 
 class OnCoordinateChanged extends CurrentWeatherEvent {
-  final double lon;
-  final double lat;
+  final num lon;
+  final num lat;
 
   const OnCoordinateChanged({required this.lon, required this.lat});
 

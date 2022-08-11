@@ -25,8 +25,8 @@ class CurrentWeatherView extends StatefulWidget {
 class _CurrentWeatherViewState extends State<CurrentWeatherView> {
   final loc = locator<GetLocation>();
 
-  double tLon = 48.8566;
-  double tLat = 2.3522;
+  num tLon = 48.8566;
+  num tLat = 2.3522;
   late String tCountry = 'Getting Data';
 
   @override

@@ -1,7 +1,12 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:intl/intl.dart';
 
+import '../../../domain/usecases/get_current_location.dart';
+import '../../../injection.dart';
 import '../../bloc/forecast_weather/forecast_weather_event.dart';
 import '../../bloc/forecast_weather/forecast_weather_bloc.dart';
 import '../../bloc/forecast_weather/forecast_weather_state.dart';
@@ -15,8 +20,10 @@ class ForecastView extends StatefulWidget {
 }
 
 class _ForecastViewState extends State<ForecastView> {
-  final tLon = 106.8456; //TODO: Change with GeoLocator and GeoCoder
-  final tLat = 6.2088;
+  final loc = locator<GetLocation>();
+
+  double tLon = 106.8456;
+  double tLat = 6.2088;
 
   @override
   void initState() {
@@ -24,6 +31,21 @@ class _ForecastViewState extends State<ForecastView> {
     context
         .read<ForecastWeatherBloc>()
         .add(OnTimeStampChanged(lon: tLon, lat: tLat));
+  }
+
+  initCurrentLocaton() async {
+    Position position = await loc.getGeoLocationPosition();
+    tLon = position.longitude;
+    tLat = position.latitude;
+
+    loc.getAddressFromLatLong(position);
+
+    Timer(const Duration(milliseconds: 1250), () {
+      var tCountry = loc.country;
+      setState(() {});
+    });
+
+    setState(() {});
   }
 
   @override
